@@ -1,0 +1,10 @@
+{
+    "cities": [
+      { "name": "Pune", "temperature": 29, "humidity": 60, "conditions": "Sunny" },
+      { "name": "Mumbai", "temperature": 32, "humidity": 80, "conditions": "Humid" },
+      { "name": "Delhi", "temperature": 28, "humidity": 45, "conditions": "Cloudy" },
+      { "name": "Bangalore", "temperature": 26, "humidity": 55, "conditions": "Rainy" },
+      { "name": "Chennai", "temperature": 33, "humidity": 70, "conditions": "Hot" }
+    ]
+  }
+  

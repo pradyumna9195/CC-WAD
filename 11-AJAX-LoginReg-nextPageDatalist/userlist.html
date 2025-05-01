@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User List - PICT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #999; padding: 8px; text-align: left; }
+    th { background-color: #eee; }
+    h2 { text-align: center; }
+  </style>
+</head>
+<body>
+  <h2>All Registered Users</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th><th>Email</th><th>Mobile</th><th>DOB</th><th>City</th><th>Address</th>
+      </tr>
+    </thead>
+    <tbody id="userTableBody"></tbody>
+  </table>
+
+  <script>
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+    const body = document.getElementById("userTableBody");
+
+    if (users.length === 0) {
+      body.innerHTML = "<tr><td colspan='6'>No users found.</td></tr>";
+    } else {
+      users.forEach(user => {
+        body.innerHTML += `
+          <tr>
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.mobile}</td>
+            <td>${user.dob}</td>
+            <td>${user.city}</td>
+            <td>${user.address}</td>
+          </tr>
+        `;
+      });
+    }
+  </script>
+</body>
+</html>
