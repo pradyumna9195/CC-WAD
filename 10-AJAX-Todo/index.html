@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>To-Do List</title>
+</head>
+
+<body>
+  <h2>To-Do List</h2>
+  <input id="taskInput" placeholder="New Task">
+  <button onclick="addTask()">Add</button>
+  <ul id="taskList"></ul>
+
+  <script>
+    async function loadTasks() {
+      const res = await fetch('/tasks');
+      const task = await res.json();
+      const list = document.getElementById('taskList');
+      list.innerHTML = ''; 
+      for (let i = 0; i < tasks.length; i++) {
+        const task = tasks[i];
+        list.innerHTML += `
+      <li>
+        <input id="t${i}" value="${task}">
+        <button onclick="updateTask(${i})">Update</button>
+        <button onclick="deleteTask(${i})">Delete</button>
+      </li>`;
+      }
+    }
+
+
+    async function addTask() {
+      const task = document.getElementById('taskInput').value;
+      if (!task) return;
+      await fetch('/tasks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ task })
+      });
+      document.getElementById('taskInput').value = '';
+      loadTasks();
+    }
+
+    async function updateTask(i) {
+      const task = document.getElementById('t' + i).value;
+      await fetch('/tasks/' + i, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ task })
+      });
+      loadTasks();
+    }
+
+    async function deleteTask(i) {
+      await fetch('/tasks/' + i, { 
+        method: 'DELETE' 
+      });
+      loadTasks();
+    }
+
+    loadTasks();
+  </script>
+</body>
+
+</html>

@@ -1,32 +1,6 @@
-# Angular Todo List Application
+# Todo
 
-A simple Angular todo list application that demonstrates Angular's two-way data binding.
-
-## Features
-
-- **Add Tasks**: Create new tasks by typing in the input field and pressing Enter or the Add button
-- **Edit Tasks**: Modify existing tasks by clicking the Edit button and saving changes
-- **Delete Tasks**: Remove unwanted tasks with the Delete button
-- **Complete Tasks**: Mark tasks as completed by checking the checkbox, which adds a strikethrough effect
-
-## Angular Concepts Demonstrated
-
-- **Components**: Structured using Angular components
-- **Two-way data binding**: Using `[(ngModel)]` for real-time updates
-- **Event binding**: With `(click)`, `(change)`, and `(keyup.enter)` events
-- **Property binding**: Using `[checked]`, `[value]`, and `[class.completed]`
-- **Structural directives**: Using `*ngFor` to render lists and `*ngIf` for conditional rendering
-
-## Implementation Details
-
-This project uses Angular's standalone components with minimal dependencies, making it perfect for beginners. The application maintains task state in memory with simple JavaScript arrays and objects.
-
-To run the application:
-```bash
-ng serve
-```
-
-Then navigate to `http://localhost:4200/` in your browser.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
 
 ## Development server
 
